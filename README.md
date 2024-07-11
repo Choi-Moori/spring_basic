@@ -53,3 +53,27 @@ gradlew : gradlew 빌드의 스크립트
 build : 실행가능한 jar + plain jar
 bootjar : 실행가능한 jar만
 
+
+7/11 복습
+
+프론트엔드 axios로 json을 전송(보낼때의 데이터 타입 : application/json) => 서버 : requestbody
+
+axios json을 전송(application/json) => 서버 : RequestBody
+axios json+파일 전송(Multipart-formdata) => 서버 RequestPart
+axios json+멀티파일(multiple) => 서버 RequestPart, List<파일>
+axios json(중첩) - application/json => 서버 RequestBody + 객체 안에 객체
+axios json(중첩) - 파일 : FormData => 서버 RequestPart
+
+<db 접근 기술>
+jdbc mybatis    : (쿼리) 
+jpa             : (쿼리O, 쿼리X)
+springdatajap   : (쿼리X-ORM(Object-Relational-Mapping))
+
+Controller 에서 Post와 Get 을 통해 정보를 받아오면
+Service 단으로 동작을 넘긴다.
+
+ReqDto : 사용자가 서버에 전송할때
+ResDto : 서버가 사용자에게 응답줄때
+객체(DB) : Member
+
+Dto와 객체를 분리

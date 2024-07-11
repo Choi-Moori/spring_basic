@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 50px; /* 상단 여백 추가 */
+        }
+        .container {
+            text-align: center;
+        }
+        .page-header {
+            margin-bottom: 20px;
+        }
+        .table {
+            margin: 0 auto;
+            width: 80%;
+        }
+        .float-end {
+            text-align: right; / 버튼을 오른쪽 정렬 /
+        margin-bottom: 20px;
+            margin-right: 10%;
+        }
+        .btn {
+            display: inline-block;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: black;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <div class="container">
+        <div th:replace="member/header :: headerFragment"></div>
+    </div>
+</div>
+    <div class="container">
+        <div class="page-header"><h3>🙂 Member Create</h3></div>
+            <form id ="postForm" method = "post">
+                <div>
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div>
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div>
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit">SUBMIT</button>
+            </form>
+    </div>
+<!--    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+<!--    <script>-->
+<!--        document.getElementById("postForm").addEventListener('submit',-->
+<!--            async function(event) { // await로 post 보낼거라 async 사용-->
+<!--                event.preventDefault();-->
+<!--                const name = document.getElementById("name").value;-->
+<!--                const email = document.getElementById("email").value;-->
+<!--                const password = document.getElementById("password").value;-->
+<!--                // title=hong&contents=hong is.. 이런 &로 이루어진 form 형식으로 들어옴 => js_form 활용한 방법-->
+<!--                const formData = new FormData();-->
+<!--                formData.append("name", name);-->
+<!--                formData.append("email", email);-->
+<!--                formData.append("password", password);-->
+
+<!--                // form 데이터 전송-->
+<!--                try{-->
+<!--                    const response = await axios.post("http://localhost:8080/member/create", formData);-->
+<!--                    console.log(response.data);-->
+<!--                } catch(e) {-->
+<!--                    console.log(e.message);-->
+<!--                }-->
+<!--            }-->
+<!--        );-->
+<!--    </script>-->
+</body>
+</html>

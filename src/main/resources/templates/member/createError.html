@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Member Detail</title>
+    <title>Title</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -21,26 +21,36 @@
         }
         .table {
             margin: 0 auto;
-            width: 50%;
+            width: 80%;
         }
         .float-end {
             text-align: right; / 버튼을 오른쪽 정렬 /
         margin-bottom: 20px;
+            margin-right: 10%;
         }
         .btn {
             display: inline-block;
         }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: black;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: flex-end;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="page-header"><h3>🙂 Author Detail</h3></div>
-        <table class="table">
-            <tr><td>id</td><td><span th:text="${id}"></span></td></tr>
-            <tr><td>name</td><td></td></tr>
-            <tr><td>email</td><td></td></tr>
-        </table>
-    </div>
-
+    <div th:text="${error}"></div>
 </body>
 </html>

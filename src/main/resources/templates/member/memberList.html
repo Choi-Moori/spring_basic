@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8" xmlns:th = "http://www.thymeleaf.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Service</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 50px; /* 상단 여백 추가 */
+        }
+        .container {
+            text-align: center;
+        }
+        .page-header {
+            margin-bottom: 20px;
+        }
+        .table {
+            margin: 0 auto;
+            width: 80%;
+        }
+        .float-end {
+            text-align: right; / 버튼을 오른쪽 정렬 /
+            margin-bottom: 20px;
+            margin-right: 10%;
+        }
+        .btn {
+            display: inline-block;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: black;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+    <body>
+        <div class="navbar">
+            <div class="container">
+                <div th:replace="member/header :: headerFragment"></div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="page-header"><h3>🙂 Author List</h3></div>
+            <div class="float-end">
+                <a href="./create">
+                    <button class="btn btn-primary" style="margin-bottom: 5px">회원가입</button>
+                </a>
+            </div>
+            <table class="table">
+                <tr><!--<th>Id</th>--><th>Name</th><th>Email</th><!--<th>Password</th>--></tr></thead>
+                <tr th:each = "member : ${memberList}">
+<!--                    <td th:text="${member.id}"></td>-->
+                    <td th:text="${member.name}"></td>
+                    <td th:text="${member.email}"></td>
+                </tr>
+            </table>
+        </div>
+
+    </body>
+</html>

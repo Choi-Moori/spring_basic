@@ -1,0 +1,13 @@
+#.properties\uB294 \uACC4\uCE35\uAD6C\uC870\uC758 \uC911\uBCF5 \uBC1C\uC0DD
+#yml, yaml\uC744 \uD1B5\uD574 \uB4E4\uC5EC\uC4F0\uAE30 \uACC4\uCE35\uAD6C\uC870 \uC0AC\uC6A9
+
+#port\uBC88\uD638 \uBCC0\uACBD\uC2DC, default\uB294 8080
+#server:
+#  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/basic
+    username: root
+    password: 1234
