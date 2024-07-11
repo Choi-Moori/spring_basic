@@ -34,3 +34,22 @@ Repository : DB접근 계층.
 Service : 실질적인 로직
 
 다른 소스코드가 BasicApplication 보다 상위 디렉토리에 있어서는 안된다.(상위 package)
+
+7/10
+화면 별도로 두고(vue) + 서버(spring)
+
+서버와 화면을 같이(ssr)
+
+jar파일 : 실행가능하도록 빌드된 class 묶음 + 라이브러리
+
+./gradlew build : 실행가능한 jar, class만으로 이루어진 jar
+./gradlew bootjar : 실행가능한 jar만
+java -jar 파일명
+
+빌드? class 묶음 + 라이브러리 => 실행
+빌드툴? gradle
+gradlew : gradlew 빌드의 스크립트
+./gradlew 테스크(build, bootjar)
+build : 실행가능한 jar + plain jar
+bootjar : 실행가능한 jar만
+

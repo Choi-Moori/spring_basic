@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Member Detail</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 50px; /* 상단 여백 추가 */
+        }
+        .container {
+            text-align: center;
+        }
+        .page-header {
+            margin-bottom: 20px;
+        }
+        .table {
+            margin: 0 auto;
+            width: 50%;
+        }
+        .float-end {
+            text-align: right; / 버튼을 오른쪽 정렬 /
+        margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header"><h3>🙂 Author Detail</h3></div>
+        <table class="table">
+            <tr><td>id</td><td><span th:text="${id}"></span></td></tr>
+            <tr><td>name</td><td></td></tr>
+            <tr><td>email</td><td></td></tr>
+        </table>
+    </div>
+
+</body>
+</html>
