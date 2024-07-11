@@ -39,7 +39,7 @@
 
                 // form 데이터 전송
                 try{
-                    const response = await axios.post("http://localhost:8080/hello/axios-form-view", formData);
+                    const response = await axios.post("http://localhost:8080/member/create", formData);
                     console.log(response.data);
                 } catch(e) {
                     console.log(e.message);
