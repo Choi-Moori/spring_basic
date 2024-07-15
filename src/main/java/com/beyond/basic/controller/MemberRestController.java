@@ -1,9 +1,6 @@
 package com.beyond.basic.controller;
 
-import com.beyond.basic.domain.MemberDetailResDto;
-import com.beyond.basic.domain.MemberReqDto;
-import com.beyond.basic.domain.MemberResDto;
-import com.beyond.basic.domain.MemberUpdateDto;
+import com.beyond.basic.domain.*;
 import com.beyond.basic.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -59,6 +56,12 @@ public class MemberRestController {
     @PatchMapping("/member/pw/update")
     public String memberPwUpdate(@RequestBody MemberUpdateDto dto){
         memberService.pwUpdate(dto);
+        return "ok";
+    }
+
+    @DeleteMapping("/member/delete/{id}")
+    public String memberDelete(@PathVariable Long id){
+        memberService.memberDelete(id);
         return "ok";
     }
 

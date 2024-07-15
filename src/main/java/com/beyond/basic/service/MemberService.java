@@ -4,6 +4,7 @@ package com.beyond.basic.service;
 import com.beyond.basic.domain.*;
 import com.beyond.basic.repository.MemberRepository;
 import com.beyond.basic.repository.MemberSpringDataJpaRepository;
+import com.beyond.basic.repository.MyMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,9 +22,9 @@ import java.util.Optional;
 public class MemberService {
 
 //    다형성 설계
-    private final MemberRepository memberRepository;
+    private final MyMemberRepository memberRepository;
     @Autowired
-    public MemberService(MemberSpringDataJpaRepository memberRepository){
+    public MemberService(MyMemberRepository memberRepository){
         System.out.println("MemberService 시작");
         this.memberRepository = memberRepository;
     }
@@ -105,7 +106,23 @@ public class MemberService {
     }
 
     public void pwUpdate(MemberUpdateDto dto){
-        Member member = memberRepository.findById(dto.getId()).orElse(null);
+        Member member = memberRepository.
+                        findById(dto.getId()).
+                        orElseThrow(()->new EntityNotFoundException("member is not found"));
+        member.updatePw(dto.getPassword());
+//        기존 객체를 조회후 수정한 다음에 save 시에는 jpa가 자동으로 update 실행을 한다.
+//        추가와 수정이 모두 save다 하지만 그 전에 findbyId로 찾아와야함.
+//        고놈 자식 똑똑하구만.
+        memberRepository.save(member);
+    }
 
+    public void memberDelete(Long id){
+        Member member = memberRepository.
+                        findById(id).
+                        orElseThrow(()->new EntityNotFoundException("member is not found"));
+        memberRepository.delete(member); // 완전삭제.
+
+//        member.updateDelYn("Y");
+//        memberRepository.save(member);
     }
 }

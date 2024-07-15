@@ -113,3 +113,7 @@ DB 의존적 : DataBase가 바뀔수 있다.
 2. js로 전송(postman으로)
    1) formdata => @RequestParam 또는 @modelattribute 객체 -> 데이터 바인딩.
    2) json => 서버에서 @RequestBody 객체  
+
+화면 Return -> MVC패턴(JSP 또는 타임리프)
+    -> @ResponseBody 붙이고 화면대신 객체 return => 데이터를 return 방식으로 됨.
+데이터를 Return : rest api 방식, rest ful한 방식

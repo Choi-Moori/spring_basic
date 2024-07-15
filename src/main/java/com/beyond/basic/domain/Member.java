@@ -54,6 +54,12 @@ public class Member {
         return new MemberResDto(id, name, email);
     }
 
+//    password 상단에 @Setter를 통해 특정 변수만 setter사용이 가능하나,
+//    일반적으로 의도를 명확하게 한 메서드를 별도로 만들어 사용하는 것을 권장.
+    public void updatePw(String password){
+        this.password = password;
+    }
+
     public MemberDetailResDto detFromEntity(){
         LocalDateTime createdTime = this.getCreatedTime();
         String value = createdTime.getYear()+"년"
