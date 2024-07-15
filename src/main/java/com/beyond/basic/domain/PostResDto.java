@@ -5,10 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class MemberResDto {
+@AllArgsConstructor
+public class PostResDto {
     private Long id;
-    private String name;
-    private String email;
+    private String title;
 }

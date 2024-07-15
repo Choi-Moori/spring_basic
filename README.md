@@ -100,3 +100,16 @@ interface 설계 : MemberRepository
 2) mybatis : 마음대로 할 수 있었다.
 3) jpa : 마음대로 할 수 있었다.
 4) springdatajpa : 구현체가 미리 만들어져 있다.
+
+7/15 
+DB 의존적 : DataBase가 바뀔수 있다. 
+    1. ex) mariadb -> mysql로 바뀌게 되면 모든 쿼리가 바뀌어야 한다.
+
+객체 의존적 : Jpa는 객체 중심의 사상, DB를 Jpa가 통제한다.
+
+1. Html로 전송하는 방법
+    => form태그 -> multipart/form-data, x-www => key&value형식
+    => 서버에서는 @RequestParam 또는 @modelattribute 객체 -> 데이터 바인딩.
+2. js로 전송(postman으로)
+   1) formdata => @RequestParam 또는 @modelattribute 객체 -> 데이터 바인딩.
+   2) json => 서버에서 @RequestBody 객체  

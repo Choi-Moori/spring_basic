@@ -104,6 +104,7 @@ public class MemberController {
     }
 
     @PostMapping("/member/create")
+//    json 구조가 아니라 form 데이터로 들어와서
     public String createMemberPost(MemberReqDto dto, Model model) {
         System.out.println("MemberController[createMemberPost] 시작");
         try {
