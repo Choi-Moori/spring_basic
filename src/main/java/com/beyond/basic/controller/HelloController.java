@@ -1,9 +1,8 @@
 package com.beyond.basic.controller;
 
-import com.beyond.basic.Domain.Hello;
-import com.beyond.basic.Domain.Student;
+import com.beyond.basic.domain.Hello;
+import com.beyond.basic.domain.Student;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

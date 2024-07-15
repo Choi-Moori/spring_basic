@@ -1,4 +1,4 @@
-package com.beyond.basic.Domain;
+package com.beyond.basic.domain;
 
 import lombok.Data;
 

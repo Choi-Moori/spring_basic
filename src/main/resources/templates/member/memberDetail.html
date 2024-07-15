@@ -58,9 +58,10 @@
     <div class="container">
         <div class="page-header"><h3>🙂 Author Detail</h3></div>
             <table class="table">
-<!--                <tr><td>id</td><td><span th:text="${id}"></span></td></tr>-->
-                <tr><td>name</td><td></td></tr>
-                <tr><td>email</td><td></td></tr>
+                <tr><td>id</td><td><span th:text="${member.id}"></span></td></tr>
+                <tr><td>name</td><td th:text="${member.name}"></td></tr>
+                <tr><td>email</td><td th:text="${member.email}"></td></tr>
+                <tr><td>password</td><td th:text="${member.password}"></td></tr>
             </table>
     </div>
 

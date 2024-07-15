@@ -1,11 +1,9 @@
-package com.beyond.basic.Controller;
+package com.beyond.basic.controller;
 
-import com.beyond.basic.Domain.Member;
-import com.beyond.basic.Domain.MemberReqDto;
-import com.beyond.basic.Domain.MemberResDto;
-import com.beyond.basic.Service.MemberService;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import com.beyond.basic.domain.MemberDetailResDto;
+import com.beyond.basic.domain.MemberReqDto;
+import com.beyond.basic.domain.MemberResDto;
+import com.beyond.basic.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +25,7 @@ public class MemberController {
 
     @Autowired
     public MemberController(MemberService memberService) {
+        System.out.println("MemberController 시작 ");
         this.memberService = memberService; // 이름이 같아서 (다형성x) this 사용
     }
 
@@ -61,6 +60,7 @@ public class MemberController {
 
     @GetMapping("/")
     public String home(){
+        System.out.println("MemberController[Home] 시작");
         return "member/home";
     }
     
@@ -69,6 +69,7 @@ public class MemberController {
      */
     @GetMapping("/member/list")
     public String findMemberList(Model model) {
+        System.out.println("MemberController[findMemberList] 시작");
         List<MemberResDto> memberList = memberService.memberList();
         model.addAttribute("memberList", memberList);
 
@@ -78,10 +79,12 @@ public class MemberController {
     /**
      * 회원 상세 조회
      */
-    @GetMapping("/member/{id}")
+    @GetMapping("/member/detail/{id}")
     // int 또는 long 받을 경우, 스프링에서 알아서 형변환 (String -> Long)
     public String memberDetail(@PathVariable Long id, Model model) {
-        model.addAttribute("id", id);
+        System.out.println("MemberController[memberDetail] 시작");
+        MemberDetailResDto memberDetailResDto = memberService.memberDetail(id);
+        model.addAttribute("member", memberDetailResDto);
         return "member/memberDetail";
     }
 
@@ -90,20 +93,24 @@ public class MemberController {
      */
     @GetMapping("/member/create")
     public String createMember() {
-
+        System.out.println("MemberController[createMember] 시작");
         return "member/createMember";
     }
 
     @GetMapping("/member/error")
     public String errorCreate(){
+        System.out.println("MemberController[errorCreate] 시작");
         return "member/createError";
     }
 
     @PostMapping("/member/create")
     public String createMemberPost(MemberReqDto dto, Model model) {
+        System.out.println("MemberController[createMemberPost] 시작");
         try {
+//            Member member = memberService.memberCreate(dto);
             memberService.memberCreate(dto);
             //        화면 리턴이 아닌 url 재호출
+//            return "redirect:/member/detail/"+member.getId();
             return "redirect:/member/list";
         }catch (IllegalArgumentException e){
             model.addAttribute("error", e.getMessage());

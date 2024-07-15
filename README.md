@@ -77,3 +77,26 @@ ResDto : 서버가 사용자에게 응답줄때
 객체(DB) : Member
 
 Dto와 객체를 분리
+
+
+7/12
+1) raw 쿼리를 문자열 형태로 사용한다 -> 컴파일 시점에서 에러가 나지 않아 디버깅이 어렵다.
+2) 조회 : ResultSet => 객체를 직접 조립해줘야함.
+mybatis : 그래도 뭐가 불편한가.
+    => raw쿼리는 그대로 -> 컴파일 시점에 에러X.(raw쿼리)
+    => 객체 조립
+jpa : 그래도 뭐가 불편한가
+springdatajap : 이것은 무엇이 편한가.
+
+1. JDBC : raw쿼리 + 객체생성X
+2. myBatis : raw쿼리 + 객체생성O
+  => save return Member
+  => 회원가입 -> 회원목록조회, 회원상세조회
+3. jpa : raw쿼리(반반) + 객체생성O
+4. SpringDataJpa : raw쿼리X + 객체생성O
+
+interface 설계 : MemberRepository
+1) jdbc : 마음대로 할 수 있었다.
+2) mybatis : 마음대로 할 수 있었다.
+3) jpa : 마음대로 할 수 있었다.
+4) springdatajpa : 구현체가 미리 만들어져 있다.

@@ -1,9 +1,10 @@
-package com.beyond.basic.Domain;
+package com.beyond.basic.domain;
 
 import lombok.Data;
 
 @Data
-public class MemberReqDto {
+public class MemberDetailResDto {
+    private Long id;
     private String name;
     private String email;
     private String password;

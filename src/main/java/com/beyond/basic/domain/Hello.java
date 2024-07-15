@@ -1,8 +1,6 @@
-package com.beyond.basic.Domain;
+package com.beyond.basic.domain;
 
 import lombok.*;
-
-import java.io.File;
 
 //@Getter
 //@Setter // 롬복라이브러리를 통해 getter, setter 어노테이션 사용.

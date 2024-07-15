@@ -1,8 +1,7 @@
-#.properties\uB294 \uACC4\uCE35\uAD6C\uC870\uC758 \uC911\uBCF5 \uBC1C\uC0DD
-#yml, yaml\uC744 \uD1B5\uD574 \uB4E4\uC5EC\uC4F0\uAE30 \uACC4\uCE35\uAD6C\uC870 \uC0AC\uC6A9
-
-#port\uBC88\uD638 \uBCC0\uACBD\uC2DC, default\uB294 8080
-#server:
+#  .properties 계층구조 중복 발생
+#    #yml, yaml을 통해 들여쓰기 계층구조 사용
+#    port 번호 변경 (default 8080)
+#  #server:
 #  port: 8081
 
 spring:
@@ -11,3 +10,22 @@ spring:
     url: jdbc:mariadb://localhost:3306/basic
     username: root
     password: 1234
+  jpa:
+    database: mysql
+#    innoDB사용 설정
+    database-platform: org.hibernate.dialect.MariaDBDialect
+#    테이블은 생성해주나, 스키마는 반드시 사전에 생성필요.
+    generate-ddl: true
+#    jpa는 인터페이스이고, hibernate는 구현체이다.
+    hibernate:
+#      create옵션은 매번 table을 drop후 재생성.
+#      update 옵션은 변경사항만 alter를 적용하고 기존의 데이터 유지.
+#      변경사항중에 주로 추가사항만을 반영하고, 삭제나 수정사항은 반영안되는 경우도 있음.
+#      validate는 실제DB와의 차이만을 check
+      ddl-auto: update
+#    Console창에 DDL, DML 문법을 출력하여 보여주는 옵션.
+#    실무에서 true로 두고 사용하게 되면 로그에 너무 많은 데이터가 담기게 된다.
+    show-sql: true
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
