@@ -51,8 +51,8 @@ public class MemberRestController {
     public String createMemberPost(@RequestBody MemberReqDto dto) {
         try {
             memberService.memberCreate(dto);
-            return "ok"; // 잘 등록됐다고 ok 출력
-        } catch (IllegalArgumentException e) {
+            return HttpStatus.OK.toString(); // 잘 등록됐다고 ok 출력
+        } catch (Exception e) {
             e.printStackTrace();
             return HttpStatus.BAD_REQUEST.toString();
         }

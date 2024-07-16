@@ -52,15 +52,13 @@ public class MemberService {
 //    @Authwired
 //    private final MemberMemoryRepository memberRepository;
 
-    public ResponseEntity<CommonResDto> memberCreate(MemberReqDto dto){
+    public void memberCreate(MemberReqDto dto){
         System.out.println("MemberService[memberCreate] 시작");
         if(dto.getPassword().length()<8){
             throw new IllegalArgumentException("비밀번호가 너무 짧습니다.");
         }
         Member member = dto.toEntity();
         memberRepository.save(member);
-
-        return new ResponseEntity<>(HttpStatus.OK);
 //        Transactional 롤백처리 테스트
 //        if(member.getName().equals("kim")) {
 //            throw new IllegalArgumentException("잘못된 입력입니다.");
