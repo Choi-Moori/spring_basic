@@ -3,6 +3,7 @@ package com.beyond.basic.controller;
 import com.beyond.basic.domain.*;
 import com.beyond.basic.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,17 +27,18 @@ public class MemberRestController {
      * 회원 목록 조회
      */
     @GetMapping("/member/list")
-    public List<MemberResDto> findMemberList() {
-        List<MemberResDto> memberResDtoList = memberService.memberList();
-        return memberResDtoList;
+    public ResponseEntity<List<CommonResDto>> findMemberList() {
+        return memberService.memberList();
     }
 
     /**
      * 회원 상세 조회
      */
     @GetMapping("/member/detail/{id}")
-    public MemberDetailResDto memberDetail(@PathVariable Long id) {
-        return memberService.memberDetail(id);
+    public ResponseEntity<Object> memberDetail(@PathVariable Long id) {
+        try {
+            return memberService.memberDetail(id);
+        }
     }
 
     @PostMapping("/member/create")

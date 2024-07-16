@@ -67,14 +67,14 @@ public class MemberController {
     /**
      * 회원 목록 조회
      */
-    @GetMapping("/member/list")
-    public String findMemberList(Model model) {
-        System.out.println("MemberController[findMemberList] 시작");
-        List<MemberResDto> memberList = memberService.memberList();
-        model.addAttribute("memberList", memberList);
-
-        return "member/memberList";
-    }
+//    @GetMapping("/member/list")
+//    public String findMemberList(Model model) {
+//        System.out.println("MemberController[findMemberList] 시작");
+//        List<MemberResDto> memberList = memberService.memberList();
+//        model.addAttribute("memberList", memberList);
+//
+//        return "member/memberList";
+//    }
 
     /**
      * 회원 상세 조회
@@ -83,8 +83,8 @@ public class MemberController {
     // int 또는 long 받을 경우, 스프링에서 알아서 형변환 (String -> Long)
     public String memberDetail(@PathVariable Long id, Model model) {
         System.out.println("MemberController[memberDetail] 시작");
-        MemberDetailResDto memberDetailResDto = memberService.memberDetail(id);
-        model.addAttribute("member", memberDetailResDto);
+//        MemberDetailResDto memberDetailResDto = memberService.memberDetail(id);
+//        model.addAttribute("member", memberDetailResDto);
         return "member/memberDetail";
     }
 

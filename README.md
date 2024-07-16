@@ -117,3 +117,12 @@ DB 의존적 : DataBase가 바뀔수 있다.
 화면 Return -> MVC패턴(JSP 또는 타임리프)
     -> @ResponseBody 붙이고 화면대신 객체 return => 데이터를 return 방식으로 됨.
 데이터를 Return : rest api 방식, rest ful한 방식
+
+
+7/16
+
+싱글톤 객체 == Spring Bean(빈) -> Spring에서 관리해준다.
+@Component : 클래스단위 지정
+@Bean : 메서드단위 지정하되, return 객체(외부 라이브러리 + Configuration)
+
+싱글톤객체 동시성 이슈 -> 없음.
