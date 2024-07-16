@@ -52,39 +52,30 @@ public class MemberService {
 //    @Authwired
 //    private final MemberMemoryRepository memberRepository;
 
-    public void/*Member*/ memberCreate(MemberReqDto dto){
+    public ResponseEntity<CommonResDto> memberCreate(MemberReqDto dto){
         System.out.println("MemberService[memberCreate] 시작");
         if(dto.getPassword().length()<8){
             throw new IllegalArgumentException("비밀번호가 너무 짧습니다.");
         }
         Member member = dto.toEntity();
         memberRepository.save(member);
+
+        return new ResponseEntity<>(HttpStatus.OK);
 //        Transactional 롤백처리 테스트
-        if(member.getName().equals("kim")) {
-            throw new IllegalArgumentException("잘못된 입력입니다.");
-        }
-//        List<Member> savedMember = memberRepository.findAll();
-//        System.out.println(savedMember.get(savedMember.size()-1));
-//        return savedMember.get(savedMember.size()-1);
+//        if(member.getName().equals("kim")) {
+//            throw new IllegalArgumentException("잘못된 입력입니다.");
+//        }
     }
-
-    public ResponseEntity<Object> memberDetail(Long id){
+    public MemberDetailResDto memberDetail(Long id) {
         System.out.println("MemberService[MemberDetail] 시작 id : " + id);
-        
         Optional<Member> optmember = memberRepository.findById(id);
-        Member member = null;
-        try {
-            member = optmember.orElseThrow(() -> new EntityNotFoundException("없는 회원 입니다."));
-            System.out.println("글쓴이의 쓴글의 개수 " + member.getPosts().size());
-            for(Post p : member.getPosts()){
-                System.out.println("글의 제목 : " + p.getTitle());
-                System.out.println("저자의 이름은 : " +p.getMember().getName());
-            }
-            return new ResponseEntity<>(new CommonResDto(HttpStatus.OK, "Member Detail", member), HttpStatus.OK);
-        }catch (EntityNotFoundException e){
-            return new ResponseEntity<>(new CommonErrorDto(HttpStatus.NOT_FOUND, "Member Not Fount"), HttpStatus.NOT_FOUND);
+        Member member = optmember.orElseThrow(() -> new EntityNotFoundException("없는 회원 입니다."));
+        System.out.println("글쓴이의 쓴글의 개수 " + member.getPosts().size());
+        for (Post p : member.getPosts()) {
+            System.out.println("글의 제목 : " + p.getTitle());
+            System.out.println("저자의 이름은 : " + p.getMember().getName());
         }
-
+        return member.detFromEntity();
     }
 
     public ResponseEntity<List<CommonResDto>> memberList(){

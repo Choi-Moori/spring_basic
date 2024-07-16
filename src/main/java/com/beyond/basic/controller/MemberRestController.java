@@ -3,9 +3,11 @@ package com.beyond.basic.controller;
 import com.beyond.basic.domain.*;
 import com.beyond.basic.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 
@@ -37,7 +39,10 @@ public class MemberRestController {
     @GetMapping("/member/detail/{id}")
     public ResponseEntity<Object> memberDetail(@PathVariable Long id) {
         try {
-            return memberService.memberDetail(id);
+            CommonResDto commonResDto = new CommonResDto(HttpStatus.OK, "OK",memberService.memberDetail(id));
+            return new ResponseEntity<>(commonResDto, HttpStatus.OK);
+        }catch (EntityNotFoundException e){
+            return new ResponseEntity<>(new CommonErrorDto(HttpStatus.NOT_FOUND, "NOT_FOUND"), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -49,7 +54,7 @@ public class MemberRestController {
             return "ok"; // 잘 등록됐다고 ok 출력
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
-            return "error 발생 ‼️";
+            return HttpStatus.BAD_REQUEST.toString();
         }
     }
 
