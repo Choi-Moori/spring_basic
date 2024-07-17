@@ -1,5 +1,6 @@
 package com.beyond.basic.domain;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,7 +16,7 @@ import java.util.List;
 //해당 클래스명으로 테이블 및 컬럼을 자동생성하고 각종 설정정보 위임
 @Entity
 @NoArgsConstructor // 기본생성자는 JPA에서 필수
-public class Member {
+public class Member extends BaseEntity{
 //    Jpa 를 통할 때는 @Id가 필수이다.
     @Id  // pk 설정
 //    indentity : auto_increment설정
@@ -37,11 +38,11 @@ public class Member {
 //    LocalDateTime => DB에는 Datetime이 들어간다.
 //    CamelCase로 작성하면 _(언더바)로 들어간다.
 //    createTime == create_time
-    @CreationTimestamp // DB에는 current_timestamp가 생성되지 않음.
-    private LocalDateTime createdTime;
-
-    @UpdateTimestamp // 값을 수정할 때마다. 시간이 바뀐다.
-    private LocalDateTime updateTime;
+//    @CreationTimestamp // DB에는 current_timestamp가 생성되지 않음.
+//    private LocalDateTime createdTime;
+//
+//    @UpdateTimestamp // 값을 수정할 때마다. 시간이 바뀐다.
+//    private LocalDateTime updateTime;
 
     public Member(String name, String email, String password){
         this.name = name;

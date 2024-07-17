@@ -58,12 +58,15 @@ public class MemberService {
             throw new IllegalArgumentException("비밀번호가 너무 짧습니다.");
         }
         Member member = dto.toEntity();
+        if(memberRepository.findByEmail(dto.getEmail()).isPresent())
+            throw new IllegalArgumentException("중복된 이메일입니다.");
         memberRepository.save(member);
 //        Transactional 롤백처리 테스트
 //        if(member.getName().equals("kim")) {
 //            throw new IllegalArgumentException("잘못된 입력입니다.");
 //        }
     }
+
     public MemberDetailResDto memberDetail(Long id) {
         System.out.println("MemberService[MemberDetail] 시작 id : " + id);
         Optional<Member> optmember = memberRepository.findById(id);
@@ -75,8 +78,28 @@ public class MemberService {
         }
         return member.detFromEntity();
     }
+    public List<MemberResDto> memberList() {
 
-    public ResponseEntity<List<CommonResDto>> memberList(){
+        List<Member> memberList = memberRepository.findAll();
+
+        List<MemberResDto> memberResDtoList = new ArrayList<>();
+        int j = 0;
+        for (Member member : memberList) {
+//            memberResDtoList.add(new MemberResDto());
+//            memberResDtoList.get(j).setId(member.getId());
+//            memberResDtoList.get(j).setName(member.getName());
+//            memberResDtoList.get(j).setEmail(member.getEmail());
+
+            MemberResDto memberResDto = member.listFromEntity();
+            memberResDtoList.add(memberResDto);
+            j++;
+
+            System.out.println(memberResDto);
+        }
+        return memberResDtoList;
+    }
+
+    public ResponseEntity<List<CommonResDto>> memberResList(){
         System.out.println("MemberService[memberList] 시작");
         List<Member> memberList = memberRepository.findAll();
         List<CommonResDto> memberResDtos = new ArrayList<>();

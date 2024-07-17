@@ -2,6 +2,7 @@ package com.beyond.basic.controller;
 
 import com.beyond.basic.domain.*;
 import com.beyond.basic.service.MemberService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.List;
  * */
 @RestController //RestController의 경우 모든 메서드에 Responsbody가 붙는 효과가 발생한다.
 @RequestMapping("/rest")
+@Api(tags="회원관리서비스")
 public class MemberRestController {
 
     private final MemberService memberService;
@@ -30,7 +32,7 @@ public class MemberRestController {
      */
     @GetMapping("/member/list")
     public ResponseEntity<List<CommonResDto>> findMemberList() {
-        return memberService.memberList();
+        return memberService.memberResList();
     }
 
     /**
@@ -48,13 +50,14 @@ public class MemberRestController {
 
     @PostMapping("/member/create")
 //    Json 으로 받으려면 @RequestBody로 받아야 한다.
-    public String createMemberPost(@RequestBody MemberReqDto dto) {
+    public ResponseEntity<Object> createMemberPost(@RequestBody MemberReqDto dto) {
         try {
             memberService.memberCreate(dto);
-            return HttpStatus.OK.toString(); // 잘 등록됐다고 ok 출력
-        } catch (Exception e) {
-            e.printStackTrace();
-            return HttpStatus.BAD_REQUEST.toString();
+            CommonResDto commonResDto = new CommonResDto(HttpStatus.OK, "member is created", null);
+            return new ResponseEntity<>(commonResDto , HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            CommonErrorDto commonErrorDto = new CommonErrorDto(HttpStatus.BAD_REQUEST, e.getMessage());
+            return new ResponseEntity<>(commonErrorDto, HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -72,4 +75,8 @@ public class MemberRestController {
         return "ok";
     }
 
+    @GetMapping("/member/text")
+    public String memberText(){
+        return "몰루";
+    }
 }
