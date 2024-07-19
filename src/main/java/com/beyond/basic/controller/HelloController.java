@@ -281,4 +281,8 @@ public class HelloController {
 //        System.out.println(request.getHeader("Cookie"));
 //        return "helloworld";
 //    }
+//    빌더 패턴 실습
+    public void helloBuilderTest(){
+        Hello hello = Hello.builder().build();
+    }
 }

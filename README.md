@@ -126,3 +126,15 @@ DB 의존적 : DataBase가 바뀔수 있다.
 @Bean : 메서드단위 지정하되, return 객체(외부 라이브러리 + Configuration)
 
 싱글톤객체 동시성 이슈 -> 없음.
+
+
+7/19일
+
+fetch(로딩) 전략 : lazy(oneToMany), eager(ManyToOne, OneToOne)
+
+상대엔티티 : (Member -> Post) , (Post -> Member)
+lazy 전략 상대 엔티티를 참조하지 않으면 상대 엔티티로 Query 발생 X -> N+1 발생 X
+lazy 전략에서도 상대 엔티티를 참조하면 상대엔티티로 Query 발생 -> N+1 발생
+
+eager 전략은 상대엔티티를 참조하지 않더라도 상대엔티티로 쿼리발생 -> N+1 발생
+eager 전략은 상대엔티티를 참조하면 당연히 상대엔티ㅌ로 쿼리발생 -> N+1 발생

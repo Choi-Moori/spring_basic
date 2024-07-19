@@ -32,6 +32,7 @@ public class Member extends BaseEntity{
     //    @Column(name="pw") 이렇게 할 수 있으나, 컬럼명과 변수명을 일치시키는 것이 혼선을 줄일 수 있다.
     private String password;
 
+
     @OneToMany(mappedBy = "member")
     private List<Post> posts;
 

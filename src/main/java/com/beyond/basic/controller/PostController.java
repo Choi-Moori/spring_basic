@@ -5,6 +5,7 @@ import com.beyond.basic.service.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -22,5 +23,12 @@ public class PostController {
     public List<PostResDto> postList(){
         System.out.println("PostController[postList] 시작 ");
         return postService.postList();
+    }
+
+    //    lazy(지연로딩), eager(즉시로딩) 테스트
+    @GetMapping("/post/member/all")
+    @ResponseBody
+    public void memberPostAll(){
+        System.out.println(postService.postList());
     }
 }

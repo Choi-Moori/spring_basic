@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="00a66583-0586-4a87-977d-36dd5d55d46f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/basic/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/basic/controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/basic/controller/MemberRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/basic/controller/MemberRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/basic/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/basic/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/basic/domain/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/basic/domain/Hello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/basic/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/basic/domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/basic/domain/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/basic/domain/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +75,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Gradle.Build spring_basic.executor": "Run",
     "Gradle.C:/Users/anflw/Desktop/BeyondCamp/spring_basic [BasicApplication.main()].executor": "Run",
-    "Gradle.spring_basic [:BasicApplication.main()].executor": "Debug",
+    "Gradle.spring_basic [:BasicApplication.main()].executor": "Run",
     "Gradle.spring_basic 빌드.executor": "Run",
     "JavaScript Debug.axiosJsonNestedFileView.html.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -79,7 +87,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/anflw/Desktop/BeyondCamp/basic_deep/board",
+    "last_opened_file_path": "C:/Users/anflw/Desktop/BeyondCamp/spring_basic",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -88,7 +96,7 @@
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "File.Encoding",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -161,6 +169,10 @@
       <workItem from="1721176845574" duration="12572000" />
       <workItem from="1721200536607" duration="65000" />
       <workItem from="1721200748499" duration="10000" />
+      <workItem from="1721202550767" duration="5212000" />
+      <workItem from="1721264594713" duration="2082000" />
+      <workItem from="1721288125624" duration="2521000" />
+      <workItem from="1721371432382" duration="3787000" />
     </task>
     <servers />
   </component>

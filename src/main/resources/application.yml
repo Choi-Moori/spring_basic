@@ -28,7 +28,7 @@ spring:
 #      update 옵션은 변경사항만 alter를 적용하고 기존의 데이터 유지.
 #      변경사항중에 주로 추가사항만을 반영하고, 삭제나 수정사항은 반영안되는 경우도 있음.
 #      validate는 실제DB와의 차이만을 check
-      ddl-auto: create
+      ddl-auto: update
 #    Console창에 DDL, DML 문법을 출력하여 보여주는 옵션.
 #    실무에서 true로 두고 사용하게 되면 로그에 너무 많은 데이터가 담기게 된다.
     show-sql: true
